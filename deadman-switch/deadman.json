@@ -1,0 +1,43 @@
+{
+    "logging": {
+         "version": 1,
+         "disable_existing_loggers": false,
+         "formatters": {
+              "simple": {
+                   "format": "%(asctime)s | %(levelname)-8s |  %(module)-16s | %(funcName)-16s | %(message)s"
+              }
+         },
+         "handlers": {
+              "console": {
+                   "class":     "logging.StreamHandler",
+                   "level":     "DEBUG",
+                   "formatter": "simple",
+                   "stream":    "ext://sys.stdout"
+              },
+              "file": {
+                   "class":     "logging.handlers.RotatingFileHandler",
+                   "level":     "DEBUG",
+                   "formatter": "simple",
+                   "filename":  "log/deadman.log",
+                   "maxBytes":  100000,
+                   "backupCount": 3 
+              }
+         },
+         "root": {
+             "handlers": ["console", "file"]
+         }
+    },
+    "ping_host": "10.91.96.150",
+    "max_fail": 12,
+    "sleep": {
+       "success": 60,
+       "fail": 10
+    },
+    "mail": {
+       "server": "ranasmtp01.ra.rockwell.com",
+       "origin": "DeadManSwitch",
+       "destination": "4408044408@vtext.com",
+       "subject": "System Warning",
+       "message": "warning! host is down!"
+    }
+}

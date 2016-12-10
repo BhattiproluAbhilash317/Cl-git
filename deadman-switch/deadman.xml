@@ -1,0 +1,10 @@
+<service>
+  <id>deadman</id>
+  <name>DeadMan Switch</name>
+  <description>This service runs a python script that monitors a system in Mequon</description>
+  <env name="PYTHON" value="%BASE%"/>
+  <executable>python</executable>
+  <arguments>main.py deadman.json</arguments>
+  <logmode>rotate</logmode>
+  <logpath>C:\deadman\log</logpath>
+</service>
